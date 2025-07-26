@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Reader - Adobe India Hackathon</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="logo">
+                <h1>PDF Reader</h1>
+            </div>
+            <div class="header-controls">
+                <button id="upload-btn" class="btn primary-btn">
+                    <i class="fas fa-upload"></i> Upload PDF
+                </button>
+                <input type="file" id="file-input" accept="application/pdf" style="display: none;">
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Sidebar for Document Outline -->
+            <aside class="sidebar" id="outline-sidebar">
+                <div class="sidebar-header">
+                    <h2>Document Outline</h2>
+                    <button id="toggle-sidebar" class="btn icon-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="search-input" placeholder="Search in document...">
+                        <button id="search-btn" class="btn icon-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <!-- Tabs for navigation -->
+                    <div class="sidebar-tabs">
+                        <button id="outline-tab" class="tab-btn active" data-tab="outline">Outline</button>
+                        <button id="bookmarks-tab" class="tab-btn" data-tab="bookmarks">Bookmarks</button>
+                    </div>
+                    
+                    <!-- Outline Tab Content -->
+                    <div id="outline-tab-content" class="tab-content active">
+                        <div id="document-outline" class="outline-container">
+                            <!-- Document outline will be populated here -->
+                            <div class="outline-placeholder">
+                                <p>Upload a PDF to view its outline</p>
+                            </div>
+                        </div>
+                        <div id="search-results" class="search-results">
+                            <!-- Search results will be displayed here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Bookmarks Tab Content -->
+                    <div id="bookmarks-tab-content" class="tab-content">
+                        <div class="bookmarks-actions">
+                            <button id="add-bookmark-btn" class="btn primary-btn">
+                                <i class="fas fa-bookmark"></i> Add Bookmark
+                            </button>
+                        </div>
+                        <div id="bookmarks-container" class="bookmarks-container">
+                            <!-- Bookmarks will be populated here -->
+                            <div class="bookmarks-placeholder">
+                                <p>No bookmarks yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- PDF Viewer Container -->
+            <section class="viewer-container">
+                <!-- Breadcrumb Navigation -->
+                <div class="breadcrumb-container" id="breadcrumb-container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" id="document-breadcrumb">
+                            <li class="breadcrumb-item">No document loaded</li>
+                        </ol>
+                    </nav>
+                </div>
+                
+                <div id="adobe-dc-view"></div>
+                <div id="pdf-placeholder" class="pdf-placeholder">
+                    <div class="placeholder-content">
+                        <i class="fas fa-file-pdf fa-4x"></i>
+                        <h2>No PDF Loaded</h2>
+                        <p>Upload a PDF file to get started</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="app-footer">
+            <p>&copy; 2025 Adobe India Hackathon - Round 2 Solution</p>
+        </footer>
+    </div>
+
+    <!-- Adobe PDF Embed API -->
+    <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="js/browser-compatibility.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/outline.js"></script>
+    <script src="js/breadcrumb.js"></script>
+    <script src="js/bookmarks.js"></script>
+    <script src="js/optimizations.js"></script>
+</body>
+</html>
