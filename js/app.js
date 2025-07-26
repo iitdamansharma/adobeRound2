@@ -2,7 +2,7 @@
 // Global variables
 let adobeDCView = null;
 let currentPdf = null;
-let clientId = "15f5e419780b46c8b1ec9aab9a3c7059"; 
+let clientId = "c1d24954c93b43b283779f0baeac964d"; 
  // Replace with your Adobe PDF Embed API client ID
 
 // Initialize the application when the DOM is fully loaded
